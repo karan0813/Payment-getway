@@ -2,11 +2,15 @@ const express = require("express");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
 const cors = require("cors");
+const dotenv = require("dotenv");
 
+// env Config
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
 
+console.log(process.env.ROZERPAY_KEY_ID);
 const razorpay = new Razorpay({
   key_id: process.env.ROZERPAY_KEY_ID,
   key_secret: process.env.ROZERPAY_KEY_SECRET,
